@@ -101,9 +101,9 @@ Requirements ~
 
 OS Info ~
 - sysname: Linux
-- machine: x86_64
-- release: 6.12.74+deb13+1-amd64
 - version: #1 SMP PREEMPT_DYNAMIC Debian 6.12.74-2 (2026-03-08)
+- release: 6.12.74+deb13+1-amd64
+- machine: x86_64
 
 Install directory for parsers and queries ~
 - /home/diegorruiz/.local/share/nvim/site/
@@ -278,22 +278,17 @@ vim.lsp: Position Encodings ~
 - No active clients
 
 ==============================================================================
-vim.provider:                                                             7 ⚠️
+vim.provider:                                                             3 ⚠️
 
 Clipboard (optional) ~
-- ⚠️ WARNING No clipboard tool found. Clipboard registers (`"+` and `"*`) will not work.
-  - ADVICE:
-    - :help |clipboard|
+- ✅ OK Clipboard tool found: xclip
 
 Node.js provider (optional) ~
 - Node.js: v20.19.2
 
-- ⚠️ WARNING Missing "neovim" npm (or yarn, pnpm) package.
-  - ADVICE:
-    - Run in shell: npm install -g neovim
-    - Run in shell (if you use yarn): yarn global add neovim
-    - Run in shell (if you use pnpm): pnpm install -g neovim
-    - You may disable this provider (and warning) by adding `let g:loaded_node_provider = 0` to your init.vim
+- Nvim node.js host: /usr/local/lib/node_modules/neovim/bin/cli.js
+- ✅ OK Latest "neovim" npm/yarn/pnpm package is installed: 5.4.0
+
 
 Perl provider (optional) ~
 - ⚠️ WARNING "Neovim::Ext" cpan module is not installed
@@ -303,19 +298,11 @@ Perl provider (optional) ~
 - ⚠️ WARNING No usable perl executable found
 
 Python 3 provider (optional) ~
-- ⚠️ WARNING No Python executable found that can `import neovim`. Using the first available executable for diagnostics.
-- ⚠️ WARNING Could not load Python :
-  /usr/bin/python3 does not have the "neovim" module.
-  /usr/bin/python3.13 does not have the "neovim" module.
-  python3.12 not found in search path or not executable.
-  python3.11 not found in search path or not executable.
-  python3.10 not found in search path or not executable.
-  python3.9 not found in search path or not executable.
-  python not found in search path or not executable.
-  - ADVICE:
-    - See :help |provider-python| for more information.
-    - You can disable this provider (and warning) by adding `let g:loaded_python3_provider = 0` to your init.vim
-- Executable: Not found
+- `g:python3_host_prog` is not set. Searching for python3 in the environment.
+- Executable: /usr/bin/python3
+- Python version: 3.13.5
+- pynvim version: 0.6.0
+- ✅ OK Latest pynvim is installed.
 
 Python virtualenv ~
 - ✅ OK no $VIRTUAL_ENV
@@ -380,33 +367,28 @@ Checking for issues with your mappings ~
 - ✅ OK No issues reported
 
 checking for overlapping keymaps ~
-- ⚠️ WARNING In mode `n`, <g> overlaps with <g%>, <grn>, <gra>, <gri>, <grr>, <grt>, <gc>, <gco>, <gcO>, <gcc>, <gO>, <g[>, <g]>, <gx>:
+- ⚠️ WARNING In mode `n`, <g> overlaps with <g%>, <gri>, <grt>, <grn>, <grr>, <gra>, <gO>, <gx>, <gc>, <gcO>, <gcc>, <gco>, <g[>, <g]>:
   - <g>: goto
   - <g%>: Cycle backwards through results
-  - <grn>: vim.lsp.buf.rename()
-  - <gra>: vim.lsp.buf.code_action()
   - <gri>: vim.lsp.buf.implementation()
-  - <grr>: vim.lsp.buf.references()
   - <grt>: vim.lsp.buf.type_definition()
+  - <grn>: vim.lsp.buf.rename()
+  - <grr>: vim.lsp.buf.references()
+  - <gra>: vim.lsp.buf.code_action()
+  - <gO>: vim.lsp.buf.document_symbol()
+  - <gx>: Open with system app
   - <gc>: Toggle comment
-  - <gco>: Add Comment Below
   - <gcO>: Add Comment Above
   - <gcc>: Toggle comment line
-  - <gO>: vim.lsp.buf.document_symbol()
+  - <gco>: Add Comment Below
   - <g[>: Move to left "around"
   - <g]>: Move to right "around"
-  - <gx>: Open with system app
-- ⚠️ WARNING In mode `x`, <a> overlaps with <an>, <al>, <ai>, <a%>:
+- ⚠️ WARNING In mode `x`, <a> overlaps with <al>, <an>, <ai>, <a%>:
   - <a>: around
-  - <an>: next
   - <al>: last
+  - <an>: next
   - <ai>: indent
 - ⚠️ WARNING In mode `x`, <i> overlaps with <il>, <in>, <ii>:
-  - <i>: inside
-  - <il>: last
-  - <in>: next
-  - <ii>: indent
-- ⚠️ WARNING In mode `o`, <i> overlaps with <il>, <in>, <ii>:
   - <i>: inside
   - <il>: last
   - <in>: next
@@ -416,14 +398,18 @@ checking for overlapping keymaps ~
   - <al>: last
   - <an>: next
   - <ai>: indent
-- ⚠️ WARNING In mode `n`, <gc> overlaps with <gco>, <gcO>, <gcc>:
+- ⚠️ WARNING In mode `o`, <i> overlaps with <il>, <in>, <ii>:
+  - <i>: inside
+  - <il>: last
+  - <in>: next
+  - <ii>: indent
+- ⚠️ WARNING In mode `n`, <gc> overlaps with <gcO>, <gcc>, <gco>:
   - <gc>: Toggle comment
-  - <gco>: Add Comment Below
   - <gcO>: Add Comment Above
   - <gcc>: Toggle comment line
+  - <gco>: Add Comment Below
 - ✅ OK Overlapping keymaps are only reported for informational purposes.
   This doesn't necessarily mean there is a problem with your config.
 
 Checking for duplicate mappings ~
 - ✅ OK No duplicate mappings found
-
