@@ -47,15 +47,15 @@ luarocks ~
    - disable `luarocks` support completely with `opts.rocks.enabled = false`
 
 ==============================================================================
-lazyvim:                                                            2 ⚠️  1 ❌
+lazyvim:                                                                  1 ❌
 
 LazyVim ~
 - ✅ OK Using Neovim >= 0.11.2
 - ✅ OK `git` is installed
 - ✅ OK `rg` is installed
 - ✅ OK `fdfind` is installed
-- ⚠️ WARNING `lazygit` is not installed
-- ⚠️ WARNING `fzf` is not installed
+- ✅ OK `lazygit` is installed
+- ✅ OK `fzf` is installed
 - ✅ OK `curl` is installed
 
 LazyVim nvim-treesitter ~
@@ -101,9 +101,9 @@ Requirements ~
 
 OS Info ~
 - sysname: Linux
-- version: #1 SMP PREEMPT_DYNAMIC Debian 6.12.74-2 (2026-03-08)
-- release: 6.12.74+deb13+1-amd64
 - machine: x86_64
+- release: 6.12.74+deb13+1-amd64
+- version: #1 SMP PREEMPT_DYNAMIC Debian 6.12.74-2 (2026-03-08)
 
 Install directory for parsers and queries ~
 - /home/diegorruiz/.local/share/nvim/site/
@@ -142,7 +142,7 @@ Installed languages     H L F I J ~
   Legend: [H]ighlights, [L]ocals, [F]olds, [I]ndents, In[J]ections ~
 
 ==============================================================================
-snacks:                                                             7 ⚠️  7 ❌
+snacks:                                                             7 ⚠️  6 ❌
 
 Snacks ~
 - ✅ OK setup called
@@ -188,7 +188,7 @@ Snacks.input ~
 - ✅ OK `vim.ui.input` is set to `Snacks.input`
 
 Snacks.lazygit ~
-- ❌ ERROR {lazygit} not installed
+- ✅ OK {lazygit} installed
 
 Snacks.notifier ~
 - ✅ OK setup {enabled}
@@ -367,42 +367,42 @@ Checking for issues with your mappings ~
 - ✅ OK No issues reported
 
 checking for overlapping keymaps ~
-- ⚠️ WARNING In mode `n`, <g> overlaps with <g%>, <gri>, <grt>, <grn>, <grr>, <gra>, <gO>, <gx>, <gc>, <gcO>, <gcc>, <gco>, <g[>, <g]>:
+- ⚠️ WARNING In mode `n`, <g> overlaps with <gO>, <g[>, <g%>, <g]>, <gc>, <gcO>, <gcc>, <gco>, <gx>, <gri>, <gra>, <grr>, <grt>, <grn>:
   - <g>: goto
-  - <g%>: Cycle backwards through results
-  - <gri>: vim.lsp.buf.implementation()
-  - <grt>: vim.lsp.buf.type_definition()
-  - <grn>: vim.lsp.buf.rename()
-  - <grr>: vim.lsp.buf.references()
-  - <gra>: vim.lsp.buf.code_action()
   - <gO>: vim.lsp.buf.document_symbol()
-  - <gx>: Open with system app
+  - <g[>: Move to left "around"
+  - <g%>: Cycle backwards through results
+  - <g]>: Move to right "around"
   - <gc>: Toggle comment
   - <gcO>: Add Comment Above
   - <gcc>: Toggle comment line
   - <gco>: Add Comment Below
-  - <g[>: Move to left "around"
-  - <g]>: Move to right "around"
-- ⚠️ WARNING In mode `x`, <a> overlaps with <al>, <an>, <ai>, <a%>:
+  - <gx>: Open with system app
+  - <gri>: vim.lsp.buf.implementation()
+  - <gra>: vim.lsp.buf.code_action()
+  - <grr>: vim.lsp.buf.references()
+  - <grt>: vim.lsp.buf.type_definition()
+  - <grn>: vim.lsp.buf.rename()
+- ⚠️ WARNING In mode `x`, <a> overlaps with <ai>, <a%>, <an>, <al>:
   - <a>: around
-  - <al>: last
-  - <an>: next
   - <ai>: indent
-- ⚠️ WARNING In mode `x`, <i> overlaps with <il>, <in>, <ii>:
+  - <an>: next
+  - <al>: last
+- ⚠️ WARNING In mode `x`, <i> overlaps with <ii>, <in>, <il>:
   - <i>: inside
-  - <il>: last
-  - <in>: next
   - <ii>: indent
-- ⚠️ WARNING In mode `o`, <a> overlaps with <al>, <an>, <ai>:
+  - <in>: next
+  - <il>: last
+- ⚠️ WARNING In mode `o`, <a> overlaps with <ai>, <an>, <al>:
   - <a>: around
-  - <al>: last
-  - <an>: next
   - <ai>: indent
-- ⚠️ WARNING In mode `o`, <i> overlaps with <il>, <in>, <ii>:
+  - <an>: next
+  - <al>: last
+- ⚠️ WARNING In mode `o`, <i> overlaps with <ii>, <in>, <il>:
   - <i>: inside
-  - <il>: last
-  - <in>: next
   - <ii>: indent
+  - <in>: next
+  - <il>: last
 - ⚠️ WARNING In mode `n`, <gc> overlaps with <gcO>, <gcc>, <gco>:
   - <gc>: Toggle comment
   - <gcO>: Add Comment Above
@@ -413,3 +413,4 @@ checking for overlapping keymaps ~
 
 Checking for duplicate mappings ~
 - ✅ OK No duplicate mappings found
+
