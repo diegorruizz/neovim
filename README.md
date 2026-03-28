@@ -1,12 +1,12 @@
-**1. Herramientas necesarias**
+#### Herramientas necesarias
 
 ```
-sudo apt install -y git curl npm gcc ripgrep fd-find nodejs xclip
-sudo apt install -g neovim
+sudo apt install -y gcc default-jdk python3 python3-pip python3-venv git curl xclip npm nodejs ripgrep fd-find lazygit fzf
+sudo npm install -g neovim
 pip install neovim --break-system-packages
 ```
 
-**2. Fuente JetBrainsMono**
+#### Fuente JetBrainsMono
 
 ```
 mkdir -p ~/.local/share/fonts/JetBrainsMono
@@ -22,7 +22,7 @@ Aplicar fuente en terminal:
 Editar → Preferencias → Apariencia → Tipografía → JetBrainsMono Nerd Font Mono Regular
 ```
 
-**3. Instalar Neovim**
+#### Neovim
 
 ```
 sudo curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
@@ -32,7 +32,7 @@ sudo ln -s /opt/nvim/bin/nvim /usr/local/bin/nvim
 sudo rm nvim-linux-x86_64.tar.gz
 ```
 
-**4. Instalar LazyVim**
+#### LazyVim
 
 ```
 git clone https://github.com/LazyVim/starter ~/.config/nvim
@@ -40,8 +40,22 @@ rm -rf ~/.config/nvim/.git
 nvim
 ```
 
-```
-Verificar que todo está bien:
+#### Autocompletado
 
-:checkhealth
 ```
+Ejecuta :Mason
+
+Selecciona (2) LSP pulsando 2
+```
+
+- Python
+    
+    Busca `pyright` y pulsa `i` para instalarlo.
+    
+- C
+    
+    Busca `clangd` y pulsa `i` para instalarlo.
+    
+- Java
+    
+    Busca `jdtls` y pulsa `i` para instalarlo.
