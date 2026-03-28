@@ -1,7 +1,9 @@
 **1. Herramientas necesarias**
 
 ```
-sudo apt install -y git curl npm gcc ripgrep fd-find nodejs
+sudo apt install -y git curl npm gcc ripgrep fd-find nodejs xclip
+sudo apt install -g neovim
+pip install neovim --break-system-packages
 ```
 
 **2. Fuente JetBrainsMono**
