@@ -22,8 +22,8 @@ Cmdline sources ~
 - cmdline (blink.cmp.sources.cmdline)
 
 Disabled sources ~
-- omni (blink.cmp.sources.complete_func)
 - lazydev (lazydev.integrations.blink)
+- omni (blink.cmp.sources.complete_func)
 
 ==============================================================================
 lazy:                                                               2 ⚠️  1 ❌
@@ -100,10 +100,10 @@ Requirements ~
   Features: alt-svc AsynchDNS brotli GSS-API HSTS HTTP2 HTTP3 HTTPS-proxy IDN IPv6 Kerberos Largefile libz NTLM PSL SPNEGO SSL threadsafe TLS-SRP UnixSockets zstd
 
 OS Info ~
-- sysname: Linux
 - machine: x86_64
 - release: 6.12.74+deb13+1-amd64
 - version: #1 SMP PREEMPT_DYNAMIC Debian 6.12.74-2 (2026-03-08)
+- sysname: Linux
 
 Install directory for parsers and queries ~
 - /home/diegorruiz/.local/share/nvim/site/
@@ -367,47 +367,47 @@ Checking for issues with your mappings ~
 - ✅ OK No issues reported
 
 checking for overlapping keymaps ~
-- ⚠️ WARNING In mode `n`, <g> overlaps with <gO>, <g[>, <g%>, <g]>, <gc>, <gcO>, <gcc>, <gco>, <gx>, <gri>, <gra>, <grr>, <grt>, <grn>:
+- ⚠️ WARNING In mode `n`, <g> overlaps with <gc>, <gco>, <gcO>, <gcc>, <g]>, <g%>, <gx>, <g[>, <gO>, <grr>, <grn>, <gri>, <gra>, <grt>:
   - <g>: goto
-  - <gO>: vim.lsp.buf.document_symbol()
-  - <g[>: Move to left "around"
-  - <g%>: Cycle backwards through results
-  - <g]>: Move to right "around"
   - <gc>: Toggle comment
+  - <gco>: Add Comment Below
   - <gcO>: Add Comment Above
   - <gcc>: Toggle comment line
-  - <gco>: Add Comment Below
+  - <g]>: Move to right "around"
+  - <g%>: Cycle backwards through results
   - <gx>: Open with system app
+  - <g[>: Move to left "around"
+  - <gO>: vim.lsp.buf.document_symbol()
+  - <grr>: vim.lsp.buf.references()
+  - <grn>: vim.lsp.buf.rename()
   - <gri>: vim.lsp.buf.implementation()
   - <gra>: vim.lsp.buf.code_action()
-  - <grr>: vim.lsp.buf.references()
   - <grt>: vim.lsp.buf.type_definition()
-  - <grn>: vim.lsp.buf.rename()
-- ⚠️ WARNING In mode `x`, <a> overlaps with <ai>, <a%>, <an>, <al>:
+- ⚠️ WARNING In mode `x`, <a> overlaps with <a%>, <an>, <ai>, <al>:
   - <a>: around
-  - <ai>: indent
   - <an>: next
+  - <ai>: indent
   - <al>: last
-- ⚠️ WARNING In mode `x`, <i> overlaps with <ii>, <in>, <il>:
+- ⚠️ WARNING In mode `x`, <i> overlaps with <il>, <in>, <ii>:
   - <i>: inside
-  - <ii>: indent
-  - <in>: next
   - <il>: last
-- ⚠️ WARNING In mode `o`, <a> overlaps with <ai>, <an>, <al>:
+  - <in>: next
+  - <ii>: indent
+- ⚠️ WARNING In mode `o`, <i> overlaps with <il>, <in>, <ii>:
+  - <i>: inside
+  - <il>: last
+  - <in>: next
+  - <ii>: indent
+- ⚠️ WARNING In mode `o`, <a> overlaps with <al>, <an>, <ai>:
   - <a>: around
-  - <ai>: indent
-  - <an>: next
   - <al>: last
-- ⚠️ WARNING In mode `o`, <i> overlaps with <ii>, <in>, <il>:
-  - <i>: inside
-  - <ii>: indent
-  - <in>: next
-  - <il>: last
-- ⚠️ WARNING In mode `n`, <gc> overlaps with <gcO>, <gcc>, <gco>:
+  - <an>: next
+  - <ai>: indent
+- ⚠️ WARNING In mode `n`, <gc> overlaps with <gco>, <gcO>, <gcc>:
   - <gc>: Toggle comment
+  - <gco>: Add Comment Below
   - <gcO>: Add Comment Above
   - <gcc>: Toggle comment line
-  - <gco>: Add Comment Below
 - ✅ OK Overlapping keymaps are only reported for informational purposes.
   This doesn't necessarily mean there is a problem with your config.
 
