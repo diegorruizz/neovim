@@ -28,7 +28,7 @@ sudo update-alternatives --config x-terminal-emulator
 ```
 sudo apt update
 sudo apt install -y git zsh zsh-autosuggestions zsh-syntax-highlighting
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
 cat >> ~/.zshrc << 'EOF'
@@ -38,5 +38,4 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 EOF
 chsh -s $(which zsh)
-sudo reboot
 ```
