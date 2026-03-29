@@ -1,14 +1,3 @@
-#### Terminal: Kitty
-
-```
-sudo apt update
-sudo apt install -y curl kitty
-mkdir -p ~/.config/kitty
-curl -LO --output-dir ~/.config/kitty https://raw.githubusercontent.com/catppuccin/kitty/main/themes/mocha.conf
-echo "include mocha.conf" >> ~/.config/kitty/kitty.conf
-sudo update-alternatives --config x-terminal-emulator
-```
-
 #### Fuente: JetBrainsMono
 
 ```bash
@@ -19,46 +8,35 @@ rm ~/.local/share/fonts/JetBrainsMono/JetBrainsMono.tar.xz
 fc-cache -fv
 ```
 
-#### Shell: Zsh
+#### Terminal: Kitty
 
-```bash
-# Instalar zsh y plugins
+```
 sudo apt update
-sudo apt install -y zsh zsh-autosuggestions zsh-syntax-highlighting
+sudo apt install -y curl kitty
+mkdir -p ~/.config/kitty
+curl -LO --output-dir ~/.config/kitty https://raw.githubusercontent.com/catppuccin/kitty/main/themes/mocha.conf
+cat >> ~/.config/kitty/kitty.conf << 'EOF'
+include mocha.conf
+font_family JetBrainsMono Nerd Font Mono
+font_size 12.0
+EOF
+sudo update-alternatives --config x-terminal-emulator
+```
 
-# Establecer zsh como shell por defecto
-chsh -s $(which zsh)
+#### Shell: Zsh + Oh My Zsh + Powerlevel10k
 
-# Instalar Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/install.sh)"
-
-# Instalar Powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Activar el tema y los plugins en .zshrc
+```
+sudo apt update
+sudo apt install -y git zsh zsh-autosuggestions zsh-syntax-highlighting
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
-sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
-
-# Añadir los plugins al .zshrc
 cat >> ~/.zshrc << 'EOF'
 autoload -Uz compinit
 compinit
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 EOF
-
-# Aplicar cambios
-source ~/.zshrc
-```
-
-#### Prompt: Starship
-
-```bash
-# 1. Instalar Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/install.sh)"
-
-# 2. Instalar Powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+chsh -s $(which zsh)
+sudo reboot
 ```
