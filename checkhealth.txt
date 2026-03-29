@@ -1,41 +1,20 @@
-#### Fuente: JetBrainsMono
+# Añadir clave de Oracle
+wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --dearmor -o /usr/share/keyrings/oracle-virtualbox-2016.gpg
 
-```bash
-mkdir -p ~/.local/share/fonts/JetBrainsMono
-curl -LO --output-dir ~/.local/share/fonts/JetBrainsMono https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
-tar -xJf ~/.local/share/fonts/JetBrainsMono/JetBrainsMono.tar.xz -C ~/.local/share/fonts/JetBrainsMono
-rm ~/.local/share/fonts/JetBrainsMono/JetBrainsMono.tar.xz
-fc-cache -fv
-```
+# Añadir repositorio
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian trixie contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 
-#### Terminal: Kitty
-
-```
+# Actualizar
 sudo apt update
-sudo apt install -y curl kitty
-mkdir -p ~/.config/kitty
-curl -LO --output-dir ~/.config/kitty https://raw.githubusercontent.com/catppuccin/kitty/main/themes/mocha.conf
-cat >> ~/.config/kitty/kitty.conf << 'EOF'
-include mocha.conf
-font_family JetBrainsMono Nerd Font Mono
-font_size 12.0
-EOF
-sudo update-alternatives --config x-terminal-emulator
-```
 
-#### Shell: Zsh + Oh My Zsh + Powerlevel10k
+# Instalar VirtualBox
+sudo apt install -y virtualbox
 
-```
-sudo apt update
-sudo apt install -y git zsh zsh-autosuggestions zsh-syntax-highlighting
-RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
-cat >> ~/.zshrc << 'EOF'
-autoload -Uz compinit
-compinit
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-EOF
-chsh -s $(which zsh)
-```
+# (MUY IMPORTANTE) dependencias del kernel
+sudo apt install -y build-essential dkms linux-headers-$(uname -r)
+
+# Añadir usuario al grupo
+sudo usermod -aG vboxusers $USER
+
+# Reiniciar el sistema
+sudo reboot
